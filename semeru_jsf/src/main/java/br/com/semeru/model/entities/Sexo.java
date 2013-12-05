@@ -23,6 +23,8 @@ import org.hibernate.annotations.ForeignKey;
 @Entity
 @Table(name = "sexo")
 public class Sexo implements Serializable {
+    /* Serializable
+    */
 
     private static final long serialVersionUID = 1L;
     

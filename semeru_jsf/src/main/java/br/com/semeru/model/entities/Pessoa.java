@@ -12,31 +12,30 @@ import javax.persistence.Temporal;
 import org.hibernate.annotations.ForeignKey;
 
 /*
-Pausa na metade do video 11
-*/
+ Pausa na metade do video 11
+ */
 @Entity
-@Table(name="pessoa")
-public class Pessoa implements Serializable{    
+@Table(name = "pessoa")
+public class Pessoa implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue // esse campo vai ser gerado pelo banco e sera autoincremento
-    @Column(name="idPessoa", nullable=false)
+    @Column(name = "idPessoa", nullable = false)
     private Integer idPessoa;
-    @Column(name="nome", nullable=false, length = 80)
+    @Column(name = "nome", nullable = false, length = 80)
     private String nome;
-    @Column(name="email", nullable=false, length = 80)
+    @Column(name = "email", nullable = false, length = 80)
     private String email;
-    @Column(name="telefone1", nullable=false, length = 14)
-    private String telefone1;
-    @Column(name="telefone2", nullable=false, length = 14)
-    private String telefone2;
-    @Column(name="cpf", length = 14)
+    @Column(name = "telefone", nullable = false, length = 14)
+    private String telefone;
+    @Column(name = "cpf", length = 14)
     private String cpf;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataNascimento;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataCadastro;
-    
+
     @ManyToOne(optional = false)
     @ForeignKey(name = "PessoaSexo")
     private Pessoa pessoa;
@@ -68,20 +67,12 @@ public class Pessoa implements Serializable{
         this.email = email;
     }
 
-    public String getTelefone1() {
-        return telefone1;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setTelefone1(String telefone1) {
-        this.telefone1 = telefone1;
-    }
-
-    public String getTelefone2() {
-        return telefone2;
-    }
-
-    public void setTelefone2(String telefone2) {
-        this.telefone2 = telefone2;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public String getCpf() {
@@ -129,5 +120,5 @@ public class Pessoa implements Serializable{
         }
         return true;
     }
-        
+
 }
